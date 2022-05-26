@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  simple_ticket:
+    build: ./simpleTicket
+    command: uwsgi --ini uwsgi.ini
+    volumes:
+      - ./simpleTicket/:/usr/src/app/
+    ports:
+      - "5000:5000"
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=user
+      - POSTGRES_DB=default_db
+  redis:
+    image: redis
+    container_name: redis-container
+    ports:
+      - "6379:6379"
+volumes:
+  data:

@@ -1,0 +1,6 @@
+simpleTicket/.idea
+simpleTicket/__pycache__
+simpleTicket/models/__pycache__
+simpleTicket/resources/__pycache__
+simpleTicket/schemas/__pycache__
+.idea
